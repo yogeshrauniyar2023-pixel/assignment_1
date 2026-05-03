@@ -1,0 +1,170 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nisha Portfolio</title>
+
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            scroll-behavior: smooth;
+        }
+
+        .hero-section {
+            background: linear-gradient(135deg, #667eea, #764ba2);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+
+        .profile-img {
+            width: 120px;
+            height: 120px;
+            border-radius: 50%;
+            object-fit: cover;
+            border: 3px solid white;
+            margin-bottom: 15px;
+        }
+
+        .custom-card {
+            transition: transform 0.3s ease;
+            border-radius: 10px;
+        }
+
+        .custom-card:hover {
+            transform: translateY(-8px);
+        }
+
+        #alert-box {
+            display: none;
+        }
+
+        .nav-demo {
+            background: #2c3e50;
+            color: white;
+            padding: 15px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+        }
+    </style>
+</head>
+
+<body>
+
+<!-- NAVBAR -->
+<header>
+    <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+        <div class="container">
+            <a class="navbar-brand fw-bold">Nisha Portfolio</a>
+        </div>
+    </nav>
+</header>
+
+<main style="margin-top: 56px;">
+
+<!-- HERO -->
+<section class="hero-section">
+    <div class="container">
+
+        <!-- PROFILE IMAGE -->
+        <img src="nisha.png" class="profile-img" alt="Profile Image">
+
+        <h1 class="fw-bold">Hi, I'm Nisha</h1>
+        <p class="lead">Aspiring Full Stack Developer | Building modern web applications</p>
+
+        <div class="mt-3">
+            <a href="#" class="btn btn-light me-2">Live Demo</a>
+            <a href="#" class="btn btn-outline-light">GitHub Repo</a>
+        </div>
+
+    </div>
+</section>
+
+<!-- SKILLS -->
+<section class="py-5 bg-light">
+    <div class="container">
+        <h2 class="text-center mb-4">Technical Skills</h2>
+
+        <div class="row text-center">
+            <div class="col-md-4">
+                <div class="card custom-card p-4 shadow-sm">
+                    <h5>HTML & CSS</h5>
+                    <p>Semantic structure and responsive layouts using Flexbox and Grid.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card custom-card p-4 shadow-sm">
+                    <h5>JavaScript</h5>
+                    <p>DOM manipulation, event handling, and client-side validation.</p>
+                </div>
+            </div>
+
+            <div class="col-md-4">
+                <div class="card custom-card p-4 shadow-sm">
+                    <h5>Bootstrap</h5>
+                    <p>Responsive UI development using grid system and components.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- CSS DEMO -->
+        <hr class="my-5">
+
+        <h3 class="text-center mb-3">CSS Navigation Example</h3>
+
+        <div class="nav-demo">
+            <h4>Nisha</h4>
+            <ul style="list-style:none; display:flex; gap:15px; margin:0;">
+                <li>Home</li>
+                <li>About</li>
+            </ul>
+        </div>
+
+    </div>
+</section>
+
+<!-- CONTACT -->
+<section class="py-5">
+    <div class="container">
+        <h2 class="text-center mb-4">Contact Me</h2>
+
+        <div id="alert-box" class="alert alert-success text-center">
+            Message sent successfully!
+        </div>
+
+        <form id="portfolioContactForm" class="shadow p-4 rounded bg-white">
+
+            <input id="userName" class="form-control mb-2" placeholder="Your Name">
+            <div id="nameError" class="text-danger mb-2" style="display:none;">Name is required</div>
+
+            <input id="userEmail" class="form-control mb-2" placeholder="Your Email">
+            <div id="emailError" class="text-danger mb-2" style="display:none;">Enter a valid email</div>
+
+            <p id="error-message" style="color:red; display:none;"></p>
+            <p id="success-message" style="color:green; display:none;"></p>
+
+            <!-- ✅ UPDATED TEXTAREA -->
+            <textarea id="userMessage" class="form-control mb-3" placeholder="Your Message"></textarea>
+
+            <button class="btn btn-primary w-100">Send Message</button>
+
+        </form>
+    </div>
+</section>
+
+</main>
+
+<footer class="bg-dark text-white text-center p-3">
+    © 2026 Nisha Portfolio
+</footer>
+
+<script src="script.js"></script>
+
+</body>
+</html>

@@ -1,0 +1,193 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Integrated Full Stack Portfolio</title>
+    <!-- Bootstrap CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet">
+    
+    <!-- Custom CSS integrating with Bootstrap -->
+    <style>
+        body {
+            font-family: 'Arial', sans-serif;
+            scroll-behavior: smooth;
+        }
+        .hero-section {
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: white;
+            padding: 100px 0;
+            text-align: center;
+        }
+        .custom-card {
+            transition: transform 0.3s ease;
+            border: none;
+            border-radius: 10px;
+        }
+        .custom-card:hover {
+            transform: translateY(-10px);
+            box-shadow: 0 10px 20px rgba(0,0,0,0.2);
+        }
+        #alert-box {
+            display: none;
+        }
+    </style>
+</head>
+<body>
+
+    <!-- Semantic HTML + Bootstrap Navbar -->
+    <header>
+        <nav class="navbar navbar-expand-lg navbar-dark bg-dark fixed-top">
+            <div class="container">
+                <a class="navbar-brand" href="#">RR Portfolio</a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navLinks">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="navLinks">
+                    <ul class="navbar-nav ms-auto">
+                        <li class="nav-item"><a class="nav-link" href="#about">About</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#skills">Skills</a></li>
+                        <li class="nav-item"><a class="nav-link" href="#contact">Contact</a></li>
+                    </ul>
+                </div>
+            </div>
+        </nav>
+    </header>
+
+    <!-- Custom CSS Hero Section -->
+    <main style="margin-top: 56px;">
+        <section id="about" class="hero-section">
+            <div class="container">
+                <h1 class="display-4 fw-bold">Hello, I'm a Developer</h1>
+                <p class="lead">Building modern, responsive web applications from front to back.</p>
+                <div class="mt-4">
+    <a href="https://your-site-link" target="_blank" class="btn btn-light me-2">Live Demo</a>
+    <a href="https://github.com/your-repo" target="_blank" class="btn btn-outline-light">GitHub Repo</a>
+</div>
+                <a href="#contact" class="btn btn-light btn-lg mt-3">Hire Me</a>
+            </div>
+        </section>
+
+        <!-- Bootstrap Grid for Skills -->
+        <section id="skills" class="py-5 bg-light">
+            <div class="container">
+                <h2 class="text-center mb-5">Technical Skills</h2>
+                <div class="row g-4">
+                    <div class="col-md-4">
+                        <div class="card custom-card h-100 text-center p-4">
+                            <h4>HTML5 & CSS3</h4>
+                            <p class="text-muted">Semantic markup and responsive layouts using Flexbox and Grid.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card custom-card h-100 text-center p-4">
+                            <h4>JavaScript</h4>
+                            <p class="text-muted">DOM manipulation, ES6 features, and asynchronous data fetching.</p>
+                        </div>
+                    </div>
+                    <div class="col-md-4">
+                        <div class="card custom-card h-100 text-center p-4">
+                            <h4>Bootstrap</h4>
+                            <p class="text-muted">Rapid UI development utilizing grid systems and pre-built components.</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- HTML Forms + Bootstrap styling + JS Validation -->
+        <section id="contact" class="py-5">
+            <div class="container">
+                <div class="row justify-content-center">
+                    <div class="col-md-6">
+                        <h2 class="text-center mb-4">Contact Me</h2>
+                        
+                        <!-- Alert Box managed by JS -->
+                        <div id="alert-box" class="alert alert-success" role="alert">
+                            Message sent successfully!
+                        </div>
+
+                        <form id="portfolioContactForm" class="shadow p-4 rounded bg-white">
+                            <div class="mb-3">
+                                <label for="userName" class="form-label">Name</label>
+                                <input type="text" class="form-control" id="userName" placeholder="John Doe">
+                                <div id="nameError" class="text-danger small mt-1" style="display:none;">Name is required.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userEmail" class="form-label">Email address</label>
+                                <input type="email" class="form-control" id="userEmail" placeholder="name@example.com">
+                                <div id="emailError" class="text-danger small mt-1" style="display:none;">Valid email is required.</div>
+                            </div>
+                            <div class="mb-3">
+                                <label for="userMessage" class="form-label">Message</label>
+                                <textarea class="form-control" id="userMessage" rows="4"></textarea>
+                            </div>
+                            <button type="submit" class="btn btn-primary w-100">Send Message</button>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="bg-dark text-white text-center py-3">
+        <p class="mb-0">&copy; 2026 E-Portfolio Complete Project</p>
+    </footer>
+
+    <!-- Bootstrap JS -->
+    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/js/bootstrap.bundle.min.js"></script>
+    
+    <!-- Custom JavaScript Logic -->
+    <script>
+        document.getElementById('portfolioContactForm').addEventListener('submit', function(e) {
+            e.preventDefault(); // Stop page reload
+            
+            // Get values
+            const name = document.getElementById('userName').value.trim();
+            const email = document.getElementById('userEmail').value.trim();
+            
+            // Error elements
+            const nameError = document.getElementById('nameError');
+            const emailError = document.getElementById('emailError');
+            const alertBox = document.getElementById('alert-box');
+            
+            let isValid = true;
+
+            // Simple validation logic
+            if(name === "") {
+                nameError.style.display = "block";
+                isValid = false;
+            } else {
+                nameError.style.display = "none";
+            }
+
+            if(email === "" || !email.includes("@")) {
+                emailError.style.display = "block";
+                isValid = false;
+            } else {
+                emailError.style.display = "none";
+            }
+
+            // If valid, show success message and reset
+            if(isValid) {
+                alertBox.style.display = "block";
+                this.reset(); // clear the form
+                
+                // Hide alert after 4 seconds
+                setTimeout(() => {
+                    alertBox.style.display = "none";
+                }, 4000);
+            }
+        });
+    </script>
+</body>
+</html>
+
+
+<div class="navbar">
+    <h2>Logo</h2>
+    <ul class="nav-links">
+        <li>Home</li>
+        <li>About</li>
+    </ul>
+</div>
